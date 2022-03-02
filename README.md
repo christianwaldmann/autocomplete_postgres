@@ -1,6 +1,6 @@
 # Autocomplete with PostgreSQL
 
-Demo showcasing autocompletion for a input field with random generated data which is stored persistent in a database.
+Project for testing out input autocompletion with PostgreSQL using randomly generated data.
 
 The suggestions are based on a substring search. The necessary query is done efficiently with a trigram index (pg_trgm, gin).
 
