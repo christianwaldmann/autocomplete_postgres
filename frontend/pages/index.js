@@ -72,19 +72,19 @@ export default function Home() {
     <div className="bg-gray-800 h-screen">
       <div className="container mx-auto pt-12 px-24">
         <div className="flex justify-center">
-          <div className="text-white text-xl mr-12 pt-1">URL</div>
+          <div className="text-white text-gray-200 text-xl mr-12 pt-1">URL</div>
           {suggestionsActive && <div className='w-screen h-screen absolute top-0' onClick={() => setSuggestionsActive(false)} />}
           <div className='relative'>
-            <input className={"text-xl px-6 py-2 focus:outline-none w-[700px] " + (suggestionsActive ? "rounded-t-xl border-b-2" : "rounded-xl")} type="search" value={searchString} onClick={() =>{if (autocompletes.length > 0) {setSuggestionsActive(true)}}} onChange={(e) => onChange(e.target.value)} onKeyDown={handleKeyDown}></input>
+            <input className={"bg-gray-700 text-gray-200 text-xl px-6 py-2 appearance-none focus:outline-none w-[700px] " + (suggestionsActive ? "rounded-t-xl border-b border-gray-600" : "rounded-xl")} type="text" value={searchString} onClick={() =>{if (autocompletes.length > 0) {setSuggestionsActive(true)}}} onChange={(e) => onChange(e.target.value)} onKeyDown={handleKeyDown}></input>
             {loading &&
-              <svg xmlns="http://www.w3.org/2000/svg" className='absolute right-16 top-2 animate-spin rotate-180 transform h-6 w-6 text-gray-500' fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg xmlns="http://www.w3.org/2000/svg" className='absolute right-6 top-2 animate-spin rotate-180 transform h-6 w-6 text-gray-400' fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
               </svg>
             }
             {suggestionsActive &&
-              <ul className="absolute bg-white rounded-b-xl w-[700px] py-2 overflow-hidden">
+              <ul className="absolute bg-gray-700 text-gray-200 rounded-b-xl w-[700px] py-2 overflow-hidden">
                 {autocompletes.map((item, index) => {
-                  return <li className={"px-6 py-2 hover:bg-gray-200 cursor-pointer text-lg " + (index === suggestionIndex && "bg-gray-200")} key={index} onClick={(e) => onChange(item)}>{item}</li>
+                  return <li className={"px-6 py-2 hover:bg-gray-600 cursor-pointer text-lg " + (index === suggestionIndex && "bg-gray-600")} key={index} onClick={(e) => onChange(item)}>{item}</li>
                 })}
               </ul>
             }
